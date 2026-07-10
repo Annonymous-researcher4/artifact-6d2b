@@ -1,0 +1,8 @@
+# ── WDC Shoes ────────────────────────────────────────────────────────────────
+python run_gnn.py --embedding-branches-dir data/shoes
+
+# ── Zalando ──────────────────────────────────────────────────────────────────
+python run_gnn.py --embedding-branches-dir data/zalando
+
+# ── Hague ────────────────────────────────────────────────────────────────────
+python run_gnn.py --embedding-branches-dir data/hague

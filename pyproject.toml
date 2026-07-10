@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multimodal-pair-encoders"
+version = "0.1.0"
+description = "Stage 1 unimodal pair encoders and the Stage 2 concat-MLP baseline"
+requires-python = ">=3.9"
+
+# Runtime dependencies are pinned in requirements.txt (installed separately) to keep
+# CPU/CUDA/MPS variants flexible; this file only declares the importable packages.
+
+[tool.setuptools]
+packages = [
+    "unimodal_pair_encoders",
+    "unimodal_pair_encoders.bimodal",
+    "unimodal_pair_encoders.hague",
+    "concat_mlp",
+]

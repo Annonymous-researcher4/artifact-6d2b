@@ -1,0 +1,34 @@
+{
+  "experiment_type": "embedding_branches_training",
+  "dataset": "WDC Shoes",
+  "text_embedding": "RoBERTa",
+  "image_embedding": "ViT-B/32",
+  "image_branch_type": "clip",
+  "use_clip": true,
+  "text_epochs": 40,
+  "contrastive_epochs": 12,
+  "classifier_epochs": 60,
+  "test_results": {
+    "fine_tuned_model": {
+      "accuracy": 0.9192708134651184,
+      "precision": 0.8169013857841492,
+      "recall": 0.8832487463951111,
+      "f1_score": 0.8487804532051086
+    },
+    "siamese_model": {
+      "accuracy": 0.88671875,
+      "precision": 0.7115384340286255,
+      "recall": 0.9390863180160522,
+      "f1_score": 0.8096280097961426
+    }
+  },
+  "embeddings": {
+    "embeddings_path": "data/shoes/intermediate_embeddings.pkl",
+    "train_samples": 6080,
+    "val_samples": 1504,
+    "test_samples": 768,
+    "total_samples": 8352,
+    "text_hidden_shape": "(768, 256)",
+    "image_hidden_shape": "(768, 256)"
+  }
+}

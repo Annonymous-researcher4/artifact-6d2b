@@ -1,0 +1,34 @@
+{
+  "experiment_type": "embedding_branches_training",
+  "dataset": "Zalando",
+  "text_embedding": "RoBERTa",
+  "image_embedding": "ViT-B/32",
+  "image_branch_type": "clip",
+  "use_clip": true,
+  "text_epochs": 40,
+  "contrastive_epochs": 12,
+  "classifier_epochs": 60,
+  "test_results": {
+    "fine_tuned_model": {
+      "accuracy": 0.8510416746139526,
+      "precision": 0.5720164775848389,
+      "recall": 0.7808988690376282,
+      "f1_score": 0.6603325605392456
+    },
+    "siamese_model": {
+      "accuracy": 0.7541666626930237,
+      "precision": 0.4207650125026703,
+      "recall": 0.8651685118675232,
+      "f1_score": 0.5661764144897461
+    }
+  },
+  "embeddings": {
+    "embeddings_path": "data/zalando/intermediate_embeddings.pkl",
+    "train_samples": 3808,
+    "val_samples": 928,
+    "test_samples": 960,
+    "total_samples": 5696,
+    "text_hidden_shape": "(960, 256)",
+    "image_hidden_shape": "(960, 256)"
+  }
+}

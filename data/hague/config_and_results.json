@@ -1,0 +1,115 @@
+{
+  "experiment_type": "hague_embedding_branches",
+  "dataset": "Hague",
+  "modalities": [
+    "image",
+    "feature_vector",
+    "point_cloud",
+    "normals"
+  ],
+  "image_branch": {
+    "type": "contrastive_clip_finetuning",
+    "clip_model": "ViT-B_32",
+    "clip_dim": 512,
+    "hidden_dim": 256,
+    "pair_method": "absolute_difference",
+    "epochs": 8,
+    "batch_size": 4,
+    "lr": 1e-05,
+    "test_metrics": {
+      "acc": 0.9299617102744097,
+      "f1": 0.883893149960328,
+      "precision": 0.9288493607559756,
+      "recall": 0.843087790110999
+    }
+  },
+  "feature_vector_branch": {
+    "type": "mlp_3layer_batchnorm",
+    "architecture": "25 -> 512 -> BN -> 128 -> BN -> 256 -> BN -> 1",
+    "operator": "division",
+    "properties": [
+      "bounding_box_width",
+      "bounding_box_length",
+      "area",
+      "perimeter",
+      "perimeter_ind",
+      "volume",
+      "convex_hull_area",
+      "convex_hull_volume",
+      "ave_centroid_distance",
+      "height_diff",
+      "num_floors",
+      "axes_symmetry",
+      "compactness_2d",
+      "compactness_3d",
+      "density",
+      "elongation",
+      "shape_ind",
+      "hemisphericality",
+      "fractality",
+      "cubeness",
+      "circumference",
+      "aligned_bounding_box_width",
+      "aligned_bounding_box_length",
+      "aligned_bounding_box_height",
+      "num_vertices"
+    ],
+    "input_dim": 25,
+    "hidden_dim": 256,
+    "lr": 0.0001,
+    "test_metrics": {
+      "acc": 0.8760370134014039,
+      "f1": 0.8151320485367595,
+      "precision": 0.7712742008104457,
+      "recall": 0.8642785065590313
+    }
+  },
+  "point_cloud_branch": {
+    "type": "siamese_pointnet",
+    "n_points": 86,
+    "hidden_dim": 256,
+    "pair_method": "absolute_difference",
+    "epochs": 50,
+    "lr": 0.0005,
+    "patience": 15,
+    "batch_size": 32,
+    "test_metrics": {
+      "acc": 0.8908742820676452,
+      "f1": 0.8342220067862336,
+      "precision": 0.8027052238805971,
+      "recall": 0.8683148335015136
+    }
+  },
+  "normals_branch": {
+    "type": "mlp_on_normal_histograms",
+    "architecture": "54 -> 256 -> 1",
+    "pair_method": "absolute_difference_of_histograms",
+    "input_dim": 54,
+    "hidden_dim": 256,
+    "epochs": 200,
+    "lr": 0.001,
+    "batch_size": 64,
+    "test_metrics": {
+      "acc": 0.8817804722399489,
+      "f1": 0.8271518544436669,
+      "precision": 0.7691973969631236,
+      "recall": 0.8945509586276489
+    }
+  },
+  "seed": 1,
+  "dataset_size": "small",
+  "neg_samples": 2,
+  "embeddings": {
+    "embeddings_path": "data/hague/intermediate_embeddings.pkl",
+    "train_samples": 5190,
+    "val_samples": 1298,
+    "test_samples": 6268,
+    "total_samples": 12756,
+    "modality_shapes": {
+      "image": "(6268, 256)",
+      "feature_vector": "(6268, 256)",
+      "point_cloud": "(6268, 256)",
+      "normals": "(6268, 256)"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+results/
+__pycache__/
+*.pyc
+.DS_Store
+venv/
+.venv/
+*.egg-info/
+
+# large raw bimodal images — download separately (see unimodal_pair_encoders/README.md)
+data/raw/bimodal/wdc_shoes_images/
+data/raw/bimodal/zalando_images/

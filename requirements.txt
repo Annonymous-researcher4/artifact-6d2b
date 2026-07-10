@@ -1,0 +1,15 @@
+# Stage-3 (GNN) reproduction requirements.
+# Pinned to the versions used in the paper; newer patch releases generally work.
+#
+# Install (CPU example):
+#   pip install torch==2.4.1
+#   pip install torch-geometric==2.6.1
+#   pip install faiss-cpu==1.12.0 numpy==1.26.4
+#
+# For CUDA builds of torch, follow https://pytorch.org/get-started/locally/
+# and install a matching torch-geometric wheel.
+
+torch==2.4.1
+torch-geometric==2.6.1
+faiss-cpu==1.12.0
+numpy==1.26.4
