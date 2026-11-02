@@ -17,10 +17,11 @@
     "batch_size": 4,
     "lr": 1e-05,
     "test_metrics": {
-      "acc": 0.9299617102744097,
-      "f1": 0.883893149960328,
-      "precision": 0.9288493607559756,
-      "recall": 0.843087790110999
+      "loss": 0.2557325122988257,
+      "acc": 0.9139816730712386,
+      "f1": 0.8647140864714087,
+      "precision": 0.8651162790697674,
+      "recall": 0.8643122676579925
     }
   },
   "feature_vector_branch": {
@@ -58,15 +59,16 @@
     "hidden_dim": 256,
     "lr": 0.0001,
     "test_metrics": {
-      "acc": 0.8760370134014039,
-      "f1": 0.8151320485367595,
-      "precision": 0.7712742008104457,
-      "recall": 0.8642785065590313
+      "loss": 0.3107001483440399,
+      "acc": 0.8665878411666174,
+      "f1": 0.8012914587613736,
+      "precision": 0.7612939208031233,
+      "recall": 0.845724907063197
     }
   },
   "point_cloud_branch": {
     "type": "siamese_pointnet",
-    "n_points": 86,
+    "n_points": 72,
     "hidden_dim": 256,
     "pair_method": "absolute_difference",
     "epochs": 50,
@@ -74,10 +76,11 @@
     "patience": 15,
     "batch_size": 32,
     "test_metrics": {
-      "acc": 0.8908742820676452,
-      "f1": 0.8342220067862336,
-      "precision": 0.8027052238805971,
-      "recall": 0.8683148335015136
+      "loss": 0.28794895020309064,
+      "acc": 0.8761454330475908,
+      "f1": 0.8125838676010139,
+      "precision": 0.7832710549008336,
+      "recall": 0.8441759603469641
     }
   },
   "normals_branch": {
@@ -90,10 +93,11 @@
     "lr": 0.001,
     "batch_size": 64,
     "test_metrics": {
-      "acc": 0.8817804722399489,
-      "f1": 0.8271518544436669,
-      "precision": 0.7691973969631236,
-      "recall": 0.8945509586276489
+      "loss": 0.32462599873542786,
+      "acc": 0.8371268105232043,
+      "f1": 0.7605388961321164,
+      "precision": 0.7142857142857143,
+      "recall": 0.8131970260223048
     }
   },
   "seed": 1,
@@ -101,15 +105,29 @@
   "neg_samples": 2,
   "embeddings": {
     "embeddings_path": "data/hague/intermediate_embeddings.pkl",
-    "train_samples": 5190,
-    "val_samples": 1298,
-    "test_samples": 6268,
-    "total_samples": 12756,
+    "train_samples": 8968,
+    "val_samples": 2243,
+    "test_samples": 10149,
+    "total_samples": 21360,
     "modality_shapes": {
-      "image": "(6268, 256)",
-      "feature_vector": "(6268, 256)",
-      "point_cloud": "(6268, 256)",
-      "normals": "(6268, 256)"
+      "image": "(10149, 256)",
+      "feature_vector": "(10149, 256)",
+      "point_cloud": "(10149, 256)",
+      "normals": "(10149, 256)"
     }
+  },
+  "agreement": {
+    "total": 10149,
+    "per_modality_correct": {
+      "image": 9276,
+      "feature_vector": 8795,
+      "point_cloud": 8883,
+      "normals": 8496
+    },
+    "all_agree": 7053,
+    "all_correct": 6896,
+    "all_wrong": 157,
+    "oracle_correct": 9992,
+    "oracle_acc": 0.9845304956153316
   }
 }
